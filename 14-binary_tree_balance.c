@@ -2,7 +2,7 @@
 
 /**
  * binary_tree_balance -  measures the balance factor of a binary tree
- * @tree: pointer to the root node 
+ * @tree: pointer to the root node
  *
  * Return: balance factor
  */

@@ -1,23 +1,22 @@
 #include "binary_trees.h"
-#include <stdlib.h>
-#include <stdio.h>
 
-size_t binary_tree_size_traverse(const binary_tree_t *tree);
+/**
+ * binary_tree_size - Find the size of the binary tree
+ * @tree: pointer to the root node
+ *
+ * Return: size of binary tree
+ */
+
 size_t binary_tree_size(const binary_tree_t *tree)
 {
-	if (tree == NULL)
-		return (0);
-	return binary_tree_size_traverse(tree);
-}
+	size_t left_S = 0, right_S = 0;
 
-size_t binary_tree_size_traverse(const binary_tree_t *tree)
-{
 	if (tree == NULL)
 		return (0);
 
-	size_t left_S = binary_tree_size_traverse(tree->left);
-	size_t right_S = binary_tree_size_traverse(tree->right);
+	right_S = binary_tree_size(tree->right);
+	left_S = binary_tree_size(tree->left);
 
-    return left_S + right_S + 1;
+	return (left_S + right_S + 1);
 }
 
