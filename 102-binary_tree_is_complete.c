@@ -13,7 +13,7 @@ int binary_tree_is_complete(const binary_tree_t *tree)
 
 	if (tree == NULL)
 		return (0);
-	return (check_is_complete(tree, 0, binary_tree_nodes(tree)));
+	return (check_comp(tree, 0, binary_tree_nodes(tree)));
 }
 
 /**
@@ -27,10 +27,10 @@ int check_comp(const binary_tree_t *tree, size_t index, size_t nodes)
 {
 	if (tree == NULL)
 		return (1);
-	if (index >= node_count)
+	if (index >= nodes)
 		return (0);
-	return (check_comp(tree->left, 2 * index + 1, node_count) &&
-			check_comp(tree->right, 2 * index + 2, node_count));
+	return (check_comp(tree->left, 2 * index + 1, nodes) &&
+			check_comp(tree->right, 2 * index + 2, nodes));
 }
 /**
  * binary_tree_nodes - counts the nodes with at least 1 child in a binary tree
