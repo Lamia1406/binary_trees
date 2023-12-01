@@ -11,16 +11,16 @@ binary_tree_t *binary_tree_uncle(binary_tree_t *node)
 {
 	binary_tree_t *Gparent = NULL;
 
-	if (node == NULL || node->parent == NULL, node->parent->parent == NULL)
+	if (node == NULL || node->parent == NULL || node->parent->parent == NULL)
 		return (NULL);
 
-	GParent = parent->parent;
+	Gparent = node->parent->parent;
 
-	if (Gparent->left_child == parent && Gparent->right_child != NULL)
-		return (Gparent->right_child);
+	if (Gparent->left == node->parent && Gparent->right != NULL)
+		return (Gparent->right);
 
-	if (Gparent->right_child == parent && Gparent->left_child != NULL)
-		return (Gparent->left_child);
+	if (Gparent->right == node->parent && Gparent->left != NULL)
+		return (Gparent->left);
 
 	return (NULL);
 }
